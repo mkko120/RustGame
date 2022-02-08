@@ -61,6 +61,7 @@ jobs:
     - name: Build | Test with Cargo
       run: cargo test
   build:
+    needs: test
     name: Build
     strategy:
       matrix:

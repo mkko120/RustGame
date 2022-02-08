@@ -2,17 +2,17 @@ name: Rust
 
 on:
   push:
-    branches:
-      - 'main'
+    branches:  
+    - 'main'
     paths:
-      - '!.github/**'
-      - '!Readme.md'
+    - '!.github/**'
+    - '!Readme.md'
   pull_request:
-    branches:
-      - 'main'
+    branches: 
+    - 'main'
     paths:
-      - '!.github/**'
-      - '!Readme.md'
+    - '!.github/**'
+    - '!Readme.md'
 
 env:
   CARGO_TERM_COLOR: always
@@ -23,61 +23,61 @@ jobs:
     strategy:
       matrix:
         os:
-          - ubuntu-latest
-          - windows-latest
+        - ubuntu-latest
+        - windows-latest
     runs-on: ${{ matrix.os }}
-    steps:
-      - name: Setup | Checkout
-        uses: actions/checkout@v2
-      - name: Setup | Dependencies
-        if: runner.os == 'Linux'
-        run: sudo apt-get install libgtk-3-dev
-      - name: Setup | Rust
-        uses: ATiltedTree/setup-rust@v1
-        with:
-          rust-version: stable
-      - name: Build | Install dependencies
-        run: cargo update
-      - name: Build | Compile with Cargo
-        run: cargo check
-  test:
+    steps: 
+    - name: Setup | Checkout
+      uses: actions/checkout@v2
+    - name: Setup | Dependencies
+      if: runner.os == 'Linux'
+      run: sudo apt-get install libgtk-3-dev
+    - name: Setup | Rust
+      uses: ATiltedTree/setup-rust@v1
+      with:
+        rust-version: stable
+    - name: Build | Install dependencies
+      run: cargo update
+    - name: Build | Compile with Cargo
+      run: cargo check
+  test: 
     name: Test
     strategy:
       matrix:
         os:
-          - ubuntu-latest
-          - windows-latest
+        - ubuntu-latest
+        - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Setup | Checkout
-        uses: actions/checkout@v2
-      - name: Setup | Dependencies
-        if: runner.os == 'Linux'
-        run: sudo apt-get install libgtk-3-dev
-      - name: Setup | Rust
-        uses: ATiltedTree/setup-rust@v1
-        with:
-          rust-version: stable
-      - name: Build | Test with Cargo
-        run: cargo test
+    - name: Setup | Checkout
+      uses: actions/checkout@v2
+    - name: Setup | Dependencies
+      if: runner.os == 'Linux'
+      run: sudo apt-get install libgtk-3-dev
+    - name: Setup | Rust
+      uses: ATiltedTree/setup-rust@v1
+      with:
+        rust-version: stable
+    - name: Build | Test with Cargo
+      run: cargo test
   build:
     needs: test
     name: Build
     strategy:
       matrix:
         os:
-          - ubuntu-latest
-          - windows-latest
+        - ubuntu-latest
+        - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Setup | Checkout
-        uses: actions/checkout@v2
-      - name: Setup | Dependencies
-        if: runner.os == 'Linux'
-        run: sudo apt-get install libgtk-3-dev
-      - name: Setup | Rust
-        uses: ATiltedTree/setup-rust@v1
-        with:
-          rust-version: stable
-      - name: Build | Build with Cargo
-        run: cargo build
+    - name: Setup | Checkout
+      uses: actions/checkout@v2
+    - name: Setup | Dependencies
+      if: runner.os == 'Linux'
+      run: sudo apt-get install libgtk-3-dev
+    - name: Setup | Rust
+      uses: ATiltedTree/setup-rust@v1
+      with:
+        rust-version: stable
+    - name: Build | Build with Cargo
+      run: cargo build

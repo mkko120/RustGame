@@ -23,7 +23,7 @@ jobs:
       with:
         rust-version: stable
     - name: Build | Install dependencies
-      run: cargo install
+      run: cargo update
     - name: Build | Compile with Cargo
       run: cargo check
   test: 

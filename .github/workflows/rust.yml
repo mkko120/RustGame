@@ -6,11 +6,13 @@ on:
     - 'main'
     paths:
     - '!.github/**'
+    - '!Readme.md'
   pull_request:
     branches: 
     - 'main'
     paths:
     - '!.github/**'
+    - '!Readme.md'
 
 env:
   CARGO_TERM_COLOR: always

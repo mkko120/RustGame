@@ -30,8 +30,7 @@ jobs:
       matrix:
         os:
         - ubuntu-latest
-        - windows-10
-        - windows-11
+        - windows-latest
         - macOS-latest
     runs-on: ${{ matrix.os }}
     steps:
@@ -49,8 +48,7 @@ jobs:
       matrix:
         os:
         - ubuntu-latest
-        - windows-10
-        - windows-11
+        - windows-latest
         - macOS-latest
     runs-on: ${{ matrix.os }}
     steps:

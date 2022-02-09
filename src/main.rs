@@ -37,7 +37,7 @@ fn build_root_widget() -> impl Widget<HelloState> {
     let button = Button::new("Hi")
         .on_click(|_esc, data: &mut HelloState, _env | {
             println!("{:?}",(*data).name);
-            (*data).name = format!("Szczurwysyn");
+            (*data).name = format!("Szczurwysynu");
             p();
         })
         .padding(0.5);

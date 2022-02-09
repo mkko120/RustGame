@@ -3,13 +3,13 @@ name: Rust
 on:
   push:
     branches:  
-    - 'main'
+    - 'dev'
     paths:
     - '!.github/**'
     - '!Readme.md'
   pull_request:
     branches: 
-    - 'main'
+    - 'dev'
     paths:
     - '!.github/**'
     - '!Readme.md'
